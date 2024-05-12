@@ -27,7 +27,6 @@
   "homepage": "https://github.com/markab-io/orbital-api#readme",
   "dependencies": {
     "@markab.io/node": "^6.0.1",
-    "apollo-server-express": "^2.1.0",
     "aws-sdk": "^2.403.0",
     "config": "^1.25.1",
     "dotenv": "^7.0.0",
