@@ -3,53 +3,66 @@ const mongoosePaginate = require("mongoose-paginate");
 
 mongoose.plugin(mongoosePaginate);
 
-const MongoDb = ({ config, onDBInit, onError, onDisconnect }) => {
-  //run seeds
-  const connection = mongoose.connect(`${config.get("db.host")}`, {
-    dbName: "orbital"
-  }); // connect to database
-  const schemas = {};
+const MongoDb = ({ config, onDBInit, onError, onDisconnect, isServerless = false }) => {
+  let conn = null;
 
-  //extract resource and format mongodb schema
-  connection
-    .then(({ models }) => {
-      Object.keys(models).map(modelName => {
-        let pathObject = models[modelName].schema.paths;
-        schemas[modelName] = pathObject;
+  const connectToDatabase = async () => {
+    if (conn == null || (isServerless && mongoose.connection.readyState !== 1)) {
+      try {
+        console.log("Connecting to DB...");
+        conn = await mongoose.connect(`${config.get("db.host")}`, {
+          dbName: "orbital",
+          bufferCommands: false,
+          bufferMaxEntries: 0
+        });
+        console.log("Connected to DB");
+
+        const schemas = {};
+        const models = conn.models;
+
+        Object.keys(models).map(modelName => {
+          let pathObject = models[modelName].schema.paths;
+          schemas[modelName] = pathObject;
+        });
+
+        onDBInit(models, schemas);
+
+        mongoose.connection.on("error", function(err) {
+          console.log("Mongoose default connection error: " + err);
+          if (onError) {
+            onError(err);
+          }
+        });
+
+        mongoose.connection.on("disconnected", function() {
+          console.log("Mongoose default connection disconnected");
+          if (onDisconnect) {
+            onDisconnect();
+          }
+        });
+      } catch (err) {
+        console.log("connect error", err);
+        if (onError) {
+          onError(err);
+        }
+      }
+    }
+    return conn;
+  };
+
+  // Handle termination signals to close the connection in non-serverless environments
+  if (!isServerless) {
+    process.on("SIGINT", function() {
+      mongoose.connection.close(function() {
+        console.log(
+          "Mongoose default connection disconnected through app termination"
+        );
+        process.exit(0);
       });
-      onDBInit(models, schemas);
-    })
-    .catch(err => {
-      console.log("connect error", err);
     });
+  }
 
-  // If the connection throws an error
-  mongoose.connection.on("error", function(err) {
-    console.log("Mongoose default connection error: " + err);
-    if (onError) {
-      onError(err);
-    }
-  });
-
-  // If the connection is disconnected
-  mongoose.connection.on("disconnected", function() {
-    console.log("Mongoose default connection disconnected");
-    if (onDisconnect) {
-      onDisconnect();
-    }
-  });
-
-  return connection;
+  return connectToDatabase();
 };
-
-// Close the database connection when the node process terminates for whatever reason
-process.on("SIGINT", function() {
-  mongoose.connection.close(function() {
-    console.log(
-      "Mongoose default connection disconnected through app termination"
-    );
-    process.exit(0);
-  });
-});
 
 module.exports = MongoDb;
