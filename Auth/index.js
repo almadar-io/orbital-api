@@ -220,4 +220,4 @@ const Auth = ({ config, userModel }) => {
   return authApi;
 };
 
-module.exports = Auth;
+export default Auth;

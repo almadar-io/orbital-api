@@ -21,4 +21,4 @@ const onPasswordReset = ({ email, userModel }, req, res) => {
   });
 };
 
-module.exports = onPasswordReset;
+export default onPasswordReset;

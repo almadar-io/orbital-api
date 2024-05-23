@@ -13,4 +13,4 @@ let knowledgeSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "knowledges" }
 });
-module.exports = knowledgeSchema; 
+export default knowledgeSchema; 

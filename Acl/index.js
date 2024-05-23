@@ -56,4 +56,4 @@ const Acl = ({ config, permissionsModel, autoPopulateDB=false }) => {
   return [crudApi, aclApi];
 };
 
-module.exports =  Acl;
+export default Acl;

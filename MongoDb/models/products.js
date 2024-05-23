@@ -42,4 +42,4 @@ productsSchema.methods.joiValidate = function(obj) {
 productsSchema.statics.joiValidate = function(obj) {
   return Joi.validate(obj, productsJoiSchema);
 };
-module.exports = mongoose.model("Product", productsSchema);
+export default mongoose.model("Product", productsSchema);

@@ -56,4 +56,4 @@ authSchema.methods.verifyPassword = function(password) {
 };
 
 // set up a mongoose model
-module.exports = mongoose.model("Auth", authSchema);
+export default mongoose.model("Auth", authSchema);

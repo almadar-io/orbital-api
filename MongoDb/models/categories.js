@@ -11,4 +11,4 @@ let categoriesSchema = new Schema({
 
 categoriesSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model("Categories", categoriesSchema);
+export default mongoose.model("Categories", categoriesSchema);

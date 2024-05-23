@@ -147,4 +147,4 @@ const Kernel = ({ config, kernelModel, permissionsModel, formsModel }) => {
   return [kernelApi, fileUploadApi, vizApi, formsApi];
 };
 
-module.exports =  Kernel;
+export default Kernel;

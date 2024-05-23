@@ -154,4 +154,4 @@ const Notification = ({
   return [notificationsApi, fileUploadApi, vizApi, formsApi];
 };
 
-module.exports = Notification;
+export default Notification;

@@ -19,4 +19,4 @@ let chatLogSchema = new Schema({
 //   model: "ChatLog",
 //   field: "chatId"
 // });
-module.exports = mongoose.model("ChatLog", chatLogSchema);
+export default mongoose.model("ChatLog", chatLogSchema);

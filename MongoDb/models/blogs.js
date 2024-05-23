@@ -25,4 +25,4 @@ let blogSchema = new Schema({
   resource: { type: String, default: "blogs" }
 });
 blogSchema.plugin(mongoosePaginate);
-module.exports = blogSchema;
+export default blogSchema;

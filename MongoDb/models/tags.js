@@ -12,4 +12,4 @@ let tagsSchema = new Schema({
 
 tagsSchema.plugin(mongoosePaginate);
 
-module.exports = tagsSchema
+export default tagsSchema

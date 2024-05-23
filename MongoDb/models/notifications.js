@@ -19,4 +19,4 @@ let notificationSchema = new Schema({
 //   model: "ChatLog",
 //   field: "chatId"
 // });
-module.exports = notificationSchema;
+export default notificationSchema;

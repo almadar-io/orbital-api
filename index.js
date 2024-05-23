@@ -83,4 +83,4 @@ const orbitalApi = ({
   };
 };
 
-module.exports = orbitalApi;
+export default orbitalApi;

@@ -193,4 +193,4 @@ const User = ({ config, userModel, permissionsModel, formsModel }) => {
   return [usersApi, fileUploadApi, vizApi, formsApi];
 };
 
-module.exports = User;
+export default User;

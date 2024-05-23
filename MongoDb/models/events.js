@@ -40,4 +40,4 @@ eventSchema.methods.joiValidate = function(obj) {
 eventSchema.statics.joiValidate = function(obj) {
   return Joi.validate(obj, eventJoiSchema);
 };
-module.exports = eventSchema;
+export default eventSchema;

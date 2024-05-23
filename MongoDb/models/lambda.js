@@ -9,4 +9,4 @@ let lambdaSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "acl" }
 });
-module.exports = mongoose.model("lambda", lambdaSchema);
+export default mongoose.model("lambda", lambdaSchema);

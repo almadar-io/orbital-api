@@ -23,4 +23,4 @@ let rideLogSchema = new Schema({
 //   model: "ChatLog",
 //   field: "rideId"
 // });
-module.exports = mongoose.model("RideLog", rideLogSchema);
+export default mongoose.model("RideLog", rideLogSchema);

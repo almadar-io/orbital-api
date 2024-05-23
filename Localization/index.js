@@ -18,4 +18,4 @@ const Localization = ({ config, userModel }) => {
   return [i18nApi, apiRoutes];
 };
 
-module.exports =  Localization;
+export default Localization;

@@ -12,4 +12,4 @@ let cartsSchema = new Schema({
 
 cartsSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model("Cart", cartsSchema);
+export default mongoose.model("Cart", cartsSchema);

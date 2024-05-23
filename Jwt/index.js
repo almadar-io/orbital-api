@@ -17,4 +17,4 @@ const Jwt = ({ config, userModel, chatLogModel }) => {
   return jwtApi;
 };
 
-module.exports =  Jwt;
+export default Jwt;

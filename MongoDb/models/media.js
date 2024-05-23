@@ -8,4 +8,4 @@ let mediaSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "media" }
 });
-module.exports = mediaSchema;
+export default mediaSchema;

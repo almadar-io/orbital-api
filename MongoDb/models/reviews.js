@@ -15,4 +15,4 @@ let reviewsSchema = new Schema({
 
 reviewsSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model("Review", reviewsSchema);
+export default mongoose.model("Review", reviewsSchema);

@@ -71,4 +71,4 @@ const MongoDb = async ({ config, onDBInit, onError, onDisconnect, isServerless =
   }
 };
 
-module.exports = MongoDb;
+export default MongoDb;

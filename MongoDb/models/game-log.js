@@ -18,4 +18,4 @@ let gameSchema = new Schema({
   createdAt: { type: Date, default: Date.now() },
   resource: { type: String, default: "game" }
 });
-module.exports = mongoose.model("Game", gameSchema);
+export default mongoose.model("Game", gameSchema);

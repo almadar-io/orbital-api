@@ -60,4 +60,4 @@ const Forms = ({ config, permissionsModel, formsModel }) => {
   return [crudApi, formsApi];
 };
 
-module.exports =  Forms;
+export default Forms;

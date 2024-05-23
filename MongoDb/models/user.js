@@ -97,4 +97,4 @@ userSchema.statics.joiValidate = function(obj) {
 };
 
 // set up a mongoose model
-module.exports = mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);

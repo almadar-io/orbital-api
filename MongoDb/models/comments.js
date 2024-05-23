@@ -14,4 +14,4 @@ let commentsSchema = new Schema({
 
 commentsSchema.plugin(mongoosePaginate);
 
-module.exports = commentsSchema
+export default commentsSchema

@@ -8,4 +8,4 @@ let settingsSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "settings" }
 });
-module.exports = settingsSchema;
+export default settingsSchema;

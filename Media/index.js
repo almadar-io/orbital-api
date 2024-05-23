@@ -138,4 +138,5 @@ const Media = ({ config, mediaModel, permissionsModel, formsModel }) => {
   return [mediaApi, fileUploadApi, formsApi];
 };
 
-module.exports = Media;
+
+export default Media;

@@ -15,4 +15,4 @@ let kernelSchema = new Schema({
   resource: { type: String, default: "kernel" }
 });
 kernelSchema.plugin(mongoosePaginate);
-module.exports = mongoose.model("Kernel", kernelSchema);
+export default mongoose.model("Kernel", kernelSchema);

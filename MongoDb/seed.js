@@ -65,4 +65,4 @@ async function runSeeds() {
   process.exit(0);
 }
 
-module.exports = runSeeds;
+export default runSeeds;
