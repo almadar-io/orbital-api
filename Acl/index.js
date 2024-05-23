@@ -6,7 +6,7 @@ const {
 } = require("@markab.io/node/acl-service/acl-service.js")
 const crudService = require("@markab.io/node/crud-service/crud-service")
 
-const Acl = ({ config, permissionsModel }) => {
+const Acl = ({ config, permissionsModel, autoPopulateDB=false }) => {
   const aclApi = aclService({ permissionsModel });
   let crudDomainLogic = {
     create: (user, req) => {
