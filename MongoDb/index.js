@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate");
+const mongoosePaginate = require("mongoose-paginate-v2");
 const knowledgeModel = require("./models/knowledges"); // Add your model here
 
 mongoose.plugin(mongoosePaginate);
