@@ -1,6 +1,6 @@
 {
-  "name": "@markab.io/orbital-api",
-  "version": "10.0.0",
+  "name": "@markab.io/node-api",
+  "version": "1.0.1",
   "description": "A way to get up and running quickly with any programming task.",
   "main": "src/javascript/index.js",
   "scripts": {
@@ -17,20 +17,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/markab-io/orbital-api.git"
+    "url": "git+https://github.com/itechdom/playground.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/markab-io/orbital-api/issues"
+    "url": "https://github.com/itechdom/playground/issues"
   },
-  "homepage": "https://github.com/markab-io/orbital-api#readme",
+  "homepage": "https://github.com/itechdom/playground#readme",
   "dependencies": {
-    "@markab.io/node": "^6.0.1",
+    "@aws-sdk/client-secrets-manager": "^3.580.0",
+    "@google/maps": "^1.0.2",
+    "@markab.io/node": "^7.0.0",
+    "@markab.io/orbital-api": "^3.0.0",
     "aws-sdk": "^2.403.0",
     "config": "^1.25.1",
+    "cors": "^2.8.5",
     "dotenv": "^7.0.0",
-    "bcrypt": "^5.1.1",
     "express": "^4.14.1",
     "express-session": "^1.15.6",
     "google-spreadsheets": "^0.5.1",
@@ -39,8 +42,9 @@
     "i18next-express-middleware": "^1.4.0",
     "i18next-node-fs-backend": "^2.1.0",
     "jsonwebtoken": "^7.4.3",
+    "lodash": "^4.17.15",
     "moment": "^2.23.0",
-    "mongoose": "^5.2.1",
+    "mongoose": "^6.0.0",
     "mongoose-findorcreate": "^3.0.0",
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.8.0",
@@ -54,13 +58,12 @@
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
     "passport-twitter": "^1.0.4",
-    "pg": "^8.3.3",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5",
-    "serverless-express": "^2.0.11",
+    "scrape-it": "^5.2.0",
     "socket.io": "^2.2.0",
     "stripe": "^6.25.1",
-    "uuid": "^3.3.2"
+    "tedious-connection-pool": "^1.0.5",
+    "uuid": "^3.3.2",
+    "x-ray": "^2.3.4"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -70,9 +73,10 @@
     "moxios": "^0.4.0",
     "nodemon": "^1.11.0",
     "regenerator-runtime": "^0.13.3",
-    "serverless": "^1.38.0",
+    "serverless": "^3.38.0",
+    "serverless-dotenv-plugin": "^6.0.0",
     "serverless-http": "^2.3.0",
-    "serverless-offline": "^5.11.0",
+    "serverless-offline": "^13.5.1",
     "supertest": "^3.4.2"
   },
   "jest": {
