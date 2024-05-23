@@ -15,4 +15,4 @@ let knowledgeSchema = new Schema({
   resource: { type: String, default: "knowledges" }
 });
 knowledgeSchema.plugin(mongoosePaginate);
-module.exports = mongoose.model("knowledges", knowledgeSchema);
+module.exports = knowledgeSchema; 
