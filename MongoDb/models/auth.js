@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var findOrCreate = require("mongoose-findorcreate");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const saltRounds = 10;
 

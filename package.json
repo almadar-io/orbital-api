@@ -27,11 +27,11 @@
   "homepage": "https://github.com/itechdom/playground#readme",
   "dependencies": {
     "@markab.io/node": "^9.5.0",
-    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "config": "^3.3.11",
     "express": "^4.14.1",
-    "jsonwebtoken": "^9.0.2",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.0"
   },
   "devDependencies": {
