@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-const mongoosePaginate = require("mongoose-paginate-v2");
 
 // set up a mongoose model
 let knowledgeSchema = new Schema({
@@ -14,5 +13,4 @@ let knowledgeSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "knowledges" }
 });
-knowledgeSchema.plugin(mongoosePaginate);
 module.exports = knowledgeSchema; 
