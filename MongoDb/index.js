@@ -10,10 +10,10 @@ const MongoDb = ({ config, onDBInit, onError, onDisconnect, isServerless = false
     if (conn == null || (isServerless && mongoose.connection.readyState !== 1)) {
       try {
         console.log("Connecting to DB...");
-        conn = await mongoose.connect(`${config.get("db.host")}`, {
+        const dbUri = await config.get("db.host");
+        conn = await mongoose.connect(dbUri, {
           dbName: "orbital",
-          bufferCommands: false,
-          bufferMaxEntries: 0
+          bufferCommands: false
         });
         console.log("Connected to DB");
 
