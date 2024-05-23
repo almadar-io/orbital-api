@@ -13,9 +13,7 @@ const MongoDb = async ({ config, onDBInit, onError, onDisconnect, isServerless =
         console.log("Connecting to DB...");
         const dbUri = await config.get("db.host");
         conn = await mongoose.connect(dbUri, {
-          dbName: "orbital",
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
+          dbName: "orbital"
         });
         mongoose.model("knowledges", knowledgeModel); // Add your model here
         console.log("Connected to DB");
