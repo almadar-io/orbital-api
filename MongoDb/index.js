@@ -30,7 +30,7 @@ const MongoDb = ({
         const schemas = {};
         const models = conn.models;
 
-        Object.keys(models).map((modelName) => {
+        Object.keys(models).forEach((modelName) => {
           let pathObject = models[modelName].schema.paths;
           schemas[modelName] = pathObject;
         });
@@ -63,16 +63,17 @@ const MongoDb = ({
   // Handle termination signals to close the connection in non-serverless environments
   if (!isServerless) {
     process.on("SIGINT", function () {
-      mongoose.connection.close(function () {
-        console.log(
-          "Mongoose default connection disconnected through app termination"
-        );
-        process.exit(0);
-      });
+      mongoose.connection.close();
     });
   }
 
-  return connectToDatabase();
+  return connectToDatabase()
+    .catch((err) => {
+      console.log("Error during database connection", err);
+      if (onError) {
+        onError(err);
+      }
+    });
 };
 
 module.exports = MongoDb;
