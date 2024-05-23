@@ -4,20 +4,11 @@ const knowledgeModel = require("./models/knowledges"); // Add your model here
 
 mongoose.plugin(mongoosePaginate);
 
-const MongoDb = ({
-  config,
-  onDBInit,
-  onError,
-  onDisconnect,
-  isServerless = false,
-}) => {
+const MongoDb = async ({ config, onDBInit, onError, onDisconnect, isServerless = false }) => {
   let conn = null;
 
   const connectToDatabase = async () => {
-    if (
-      conn == null ||
-      (isServerless && mongoose.connection.readyState !== 1)
-    ) {
+    if (conn == null || (isServerless && mongoose.connection.readyState !== 1)) {
       try {
         console.log("Connecting to DB...");
         const dbUri = await config.get("db.host");
@@ -37,14 +28,14 @@ const MongoDb = ({
 
         onDBInit(models, schemas);
 
-        mongoose.connection.on("error", function (err) {
+        mongoose.connection.on("error", (err) => {
           console.log("Mongoose default connection error: " + err);
           if (onError) {
             onError(err);
           }
         });
 
-        mongoose.connection.on("disconnected", function () {
+        mongoose.connection.on("disconnected", () => {
           console.log("Mongoose default connection disconnected");
           if (onDisconnect) {
             onDisconnect();
@@ -62,18 +53,22 @@ const MongoDb = ({
 
   // Handle termination signals to close the connection in non-serverless environments
   if (!isServerless) {
-    process.on("SIGINT", function () {
-      mongoose.connection.close();
+    process.on("SIGINT", () => {
+      mongoose.connection.close(() => {
+        console.log("Mongoose default connection disconnected through app termination");
+        process.exit(0);
+      });
     });
   }
 
-  return connectToDatabase()
-    .catch((err) => {
-      console.log("Error during database connection", err);
-      if (onError) {
-        onError(err);
-      }
-    });
+  try {
+    await connectToDatabase();
+  } catch (err) {
+    console.log("Error during database connection", err);
+    if (onError) {
+      onError(err);
+    }
+  }
 };
 
 module.exports = MongoDb;
