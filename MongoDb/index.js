@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate");
+require('./models/knowledges'); // Add your model here
+
 
 mongoose.plugin(mongoosePaginate);
 
@@ -12,8 +14,7 @@ const MongoDb = ({ config, onDBInit, onError, onDisconnect, isServerless = false
         console.log("Connecting to DB...");
         const dbUri = await config.get("db.host");
         conn = await mongoose.connect(dbUri, {
-          dbName: "orbital",
-          bufferCommands: false
+          dbName: "orbital"
         });
         console.log("Connected to DB");
 
