@@ -16,7 +16,6 @@ const MongoDb = async ({ config, onDBInit, onError, onDisconnect, isServerless =
           dbName: "orbital"
         });
         mongoose.model("knowledges", knowledgeModel); // Add your model here
-        console.log("Connected to DB");
 
         const schemas = {};
         const models = conn.models;
