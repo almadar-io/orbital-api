@@ -1,11 +1,11 @@
-const {
+import mongoose from 'mongoose';
+import knowledgeSchema from '@markab.io/orbital-api/MongoDb/models/knowledges.js';
+import {
   readFiles,
   connectToDb,
   formatMindmap,
   flattenMindmap,
-} = require("./utils");
-import mongoose from 'mongoose';
-import knowledgeSchema from '@markab.io/orbital-api/MongoDb/models/knowledges.js';
+} from "./utils.js";
 
 const knowledgeModel = mongoose.model("knowledges", knowledgeSchema);
 

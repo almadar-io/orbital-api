@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate-v2';
+var Schema = mongoose.Schema;
 
 // set up a mongoose model
 let blogSchema = new Schema({

@@ -1,1 +1,1 @@
-require("./request-list");
+import { RequestList } from "./request-list";

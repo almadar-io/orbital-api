@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
 import mongoosePaginate from 'mongoose-paginate-v2';
+import mongoose from "mongoose";
+var Schema = mongoose.Schema;
 
 let categoriesSchema = new Schema({
   title: String,

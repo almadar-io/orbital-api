@@ -1,10 +1,12 @@
-var mongoose = require("mongoose");
-var findOrCreate = require("mongoose-findorcreate");
+import mongoose from "mongoose";
+import findOrCreate from 'mongoose-findorcreate';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
-const saltRounds = 10;
 import Joi from 'joi';
 import mongoosePaginate from 'mongoose-paginate-v2';
+
+
+const saltRounds = 10;
 
 const userJoiSchema = Joi.object()
   .keys({
