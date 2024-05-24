@@ -2,14 +2,14 @@
 import crudService from "@markab.io/node/crud-service/crud-service"
 import mediaService from "@markab.io/node/media-service/media-service.js"
 import vizService from "@markab.io/node/viz-service/viz-service.js"
-const {
+import {
   formsService,
-  registerForms
-} = require("@markab.io/node/forms-service/forms-service")
-const {
+  registerForms,
+} from "@markab.io/node/forms-service/forms-service";
+import {
   registerAction,
-  isPermitted
-} = require("@markab.io/node/acl-service/acl-service.js")
+  isPermitted,
+} from "@markab.io/node/acl-service/acl-service.js";
 const Kernel = ({ config, kernelModel, permissionsModel, formsModel }) => {
   let modelName = "kernel";
   let crudDomainLogic = {
