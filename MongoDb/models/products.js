@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
+import Joi from 'joi';
+import mongoosePaginate from 'mongoose-paginate-v2';
 var Schema = mongoose.Schema;
-const Joi = require("joi");
-const mongoosePaginate = require("mongoose-paginate-v2");
 
 const productsJoiSchema = Joi.object()
   .keys({
@@ -42,4 +42,4 @@ productsSchema.methods.joiValidate = function(obj) {
 productsSchema.statics.joiValidate = function(obj) {
   return Joi.validate(obj, productsJoiSchema);
 };
-module.exports = mongoose.model("Product", productsSchema);
+export default mongoose.model("Product", productsSchema);

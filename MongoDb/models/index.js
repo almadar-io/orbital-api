@@ -1,10 +1,10 @@
-const authModel = require("./auth.js")
-const permissionsModel = require("./permissions")
-const settingsModel = require("./settings")
-const formsModel = require("./forms")
-const lambdaModel = require("./lambda")
-const userModel = require("./user")
-const gameModel = require("./game")
+import authModel from "./auth.js"
+import permissionsModel from "./permissions.js"
+import settingsModel from "./settings.js"
+import formsModel from "./forms.js"
+import lambdaModel from "./lambda.js"
+import userModel from "./user.js"
+import gameModel from "./game.js"
 
 export {
   authModel,

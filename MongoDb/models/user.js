@@ -1,10 +1,12 @@
-var mongoose = require("mongoose");
-var findOrCreate = require("mongoose-findorcreate");
-const bcrypt = require("bcrypt");
-const crypto = require("crypto");
+import mongoose from "mongoose";
+import findOrCreate from 'mongoose-findorcreate';
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
+import Joi from 'joi';
+import mongoosePaginate from 'mongoose-paginate-v2';
+
+
 const saltRounds = 10;
-const Joi = require("joi");
-const mongoosePaginate = require("mongoose-paginate-v2");
 
 const userJoiSchema = Joi.object()
   .keys({
@@ -97,4 +99,4 @@ userSchema.statics.joiValidate = function(obj) {
 };
 
 // set up a mongoose model
-module.exports = mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);

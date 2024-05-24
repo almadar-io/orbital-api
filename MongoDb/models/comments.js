@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
-const mongoosePaginate = require("mongoose-paginate-v2");
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 let commentsSchema = new Schema({
   title: String,
@@ -14,4 +14,4 @@ let commentsSchema = new Schema({
 
 commentsSchema.plugin(mongoosePaginate);
 
-module.exports = commentsSchema
+export default commentsSchema

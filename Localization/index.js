@@ -1,6 +1,6 @@
-const i18nService = require("@markab.io/node/i18n-service/i18n-service")
-const express = require("express")
-const path = require("path")
+import i18nService from "@markab.io/node/i18n-service/i18n-service.js"
+import express from "express"
+import path from "path"
 
 /* Zee:
   what's happening here? None of the input args are used. 
@@ -18,4 +18,4 @@ const Localization = ({ config, userModel }) => {
   return [i18nApi, apiRoutes];
 };
 
-module.exports =  Localization;
+export default Localization;

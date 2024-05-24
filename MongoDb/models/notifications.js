@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
@@ -19,4 +19,4 @@ let notificationSchema = new Schema({
 //   model: "ChatLog",
 //   field: "chatId"
 // });
-module.exports = notificationSchema;
+export default notificationSchema;

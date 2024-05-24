@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 // set up a mongoose model
@@ -8,4 +8,4 @@ let mediaSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "media" }
 });
-module.exports = mediaSchema;
+export default mediaSchema;

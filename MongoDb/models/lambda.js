@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
@@ -9,4 +9,4 @@ let lambdaSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "acl" }
 });
-module.exports = mongoose.model("lambda", lambdaSchema);
+export default mongoose.model("lambda", lambdaSchema);

@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
-const mongoosePaginate = require("mongoose-paginate-v2");
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 let reviewsSchema = new Schema({
   title: String,
@@ -15,4 +15,4 @@ let reviewsSchema = new Schema({
 
 reviewsSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model("Review", reviewsSchema);
+export default mongoose.model("Review", reviewsSchema);

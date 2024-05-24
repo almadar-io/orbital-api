@@ -1,17 +1,17 @@
 //the crud service creates [create, read, update, del] endpoints for a mongoose model
-const crudService = require("@markab.io/node/crud-service/crud-service");
-const mediaService = require("@markab.io/node/media-service/media-service.js");
-const { sendEmail } = require("@markab.io/node/email-service/email-service");
-const vizService = require("@markab.io/node/viz-service/viz-service");
-const {
+import crudService from '@markab.io/node/crud-service/crud-service.js';
+import mediaService from '@markab.io/node/media-service/media-service.js';
+import {  sendEmail  } from '@markab.io/node/email-service/email-service.js';
+import vizService from '@markab.io/node/viz-service/viz-service.js';
+import {
   formsService,
-  registerForms
-} = require("@markab.io/node/forms-service/forms-service");
-const {
+  registerForms,
+} from "@markab.io/node/forms-service/forms-service";
+import {
   registerAction,
-  isPermitted
-} = require("@markab.io/node/acl-service/acl-service.js");
-const { onPasswordReset } = require("./on-password-reset");
+  isPermitted,
+} from "@markab.io/node/acl-service/acl-service.js";
+import {  onPasswordReset  } from './on-password-reset.js';
 
 const User = ({ config, userModel, permissionsModel, formsModel }) => {
   let modelName = "users";
@@ -193,4 +193,4 @@ const User = ({ config, userModel, permissionsModel, formsModel }) => {
   return [usersApi, fileUploadApi, vizApi, formsApi];
 };
 
-module.exports = User;
+export default User;

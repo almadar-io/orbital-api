@@ -1,13 +1,10 @@
-//the crud service creates [create, read, update, del] endpoints for a mongoose model
-const {
-  aclService,
-  registerAction,
-  isPermitted
-} = require("@markab.io/node/acl-service/acl-service.js")
-const crudService = require("@markab.io/node/crud-service/crud-service")
+// Importing required services
+import { aclService, registerAction, isPermitted } from "@markab.io/node/acl-service/acl-service.js";
+import crudService from "@markab.io/node/crud-service/crud-service.js";
 
-const Acl = ({ config, permissionsModel, autoPopulateDB=false }) => {
+const Acl = ({ config, permissionsModel, autoPopulateDB = false }) => {
   const aclApi = aclService({ permissionsModel });
+  
   let crudDomainLogic = {
     create: (user, req) => {
       return {
@@ -45,15 +42,17 @@ const Acl = ({ config, permissionsModel, autoPopulateDB=false }) => {
   /* Zee:
     Syntax question: what's up with the argument list here? The Model parameter is given permissionsModel!  
     why not just passing permissionModel? I've never seen an object being passed like this. 
- */
+   */
   const crudApi = crudService({ Model: permissionsModel, crudDomainLogic });
+  
   registerAction({
     key: "acl",
     domainLogic: crudDomainLogic,
     permissionsModel,
     defaultPermission: false
   });
+  
   return [crudApi, aclApi];
 };
 
-module.exports =  Acl;
+export default Acl;

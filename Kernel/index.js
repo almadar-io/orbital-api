@@ -1,15 +1,15 @@
 //the crud service creates [create, read, update, del] endpoints for a mongoose model
-const crudService = require("@markab.io/node/crud-service/crud-service")
-const mediaService = require("@markab.io/node/media-service/media-service.js")
-const vizService = require("@markab.io/node/viz-service/viz-service.js")
-const {
+import crudService from "@markab.io/node/crud-service/crud-service.js"
+import mediaService from "@markab.io/node/media-service/media-service.js"
+import vizService from "@markab.io/node/viz-service/viz-service.js"
+import {
   formsService,
-  registerForms
-} = require("@markab.io/node/forms-service/forms-service")
-const {
+  registerForms,
+} from "@markab.io/node/forms-service/forms-service";
+import {
   registerAction,
-  isPermitted
-} = require("@markab.io/node/acl-service/acl-service.js")
+  isPermitted,
+} from "@markab.io/node/acl-service/acl-service.js";
 const Kernel = ({ config, kernelModel, permissionsModel, formsModel }) => {
   let modelName = "kernel";
   let crudDomainLogic = {
@@ -147,4 +147,4 @@ const Kernel = ({ config, kernelModel, permissionsModel, formsModel }) => {
   return [kernelApi, fileUploadApi, vizApi, formsApi];
 };
 
-module.exports =  Kernel;
+export default Kernel;

@@ -17,4 +17,4 @@ let blogs = [
   }
 ];
 
-module.exports = blogs;
+export default blogs;

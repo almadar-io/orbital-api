@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
@@ -23,4 +23,4 @@ let rideLogSchema = new Schema({
 //   model: "ChatLog",
 //   field: "rideId"
 // });
-module.exports = mongoose.model("RideLog", rideLogSchema);
+export default mongoose.model("RideLog", rideLogSchema);

@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
-const mongoosePaginate = require("mongoose-paginate-v2");
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 let tagsSchema = new Schema({
   title: String,
@@ -12,4 +12,4 @@ let tagsSchema = new Schema({
 
 tagsSchema.plugin(mongoosePaginate);
 
-module.exports = tagsSchema
+export default tagsSchema

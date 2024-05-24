@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
 var Schema = mongoose.Schema;
-const mongoosePaginate = require("mongoose-paginate-v2");
 
 // set up a mongoose model
 let blogSchema = new Schema({
@@ -25,4 +25,4 @@ let blogSchema = new Schema({
   resource: { type: String, default: "blogs" }
 });
 blogSchema.plugin(mongoosePaginate);
-module.exports = blogSchema;
+export default blogSchema;

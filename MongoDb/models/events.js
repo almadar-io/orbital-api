@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
-const Joi = require("joi");
-const mongoosePaginate = require("mongoose-paginate-v2");
+import Joi from 'joi';
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 const eventJoiSchema = Joi.object()
   .keys({
@@ -40,4 +40,4 @@ eventSchema.methods.joiValidate = function(obj) {
 eventSchema.statics.joiValidate = function(obj) {
   return Joi.validate(obj, eventJoiSchema);
 };
-module.exports = eventSchema;
+export default eventSchema;

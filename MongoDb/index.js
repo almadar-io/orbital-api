@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate-v2");
-const knowledgeModel = require("./models/knowledges"); // Add your model here
+import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
+import knowledgeModel from './models/knowledges.js'; // Add your model here
 
 mongoose.plugin(mongoosePaginate);
 
@@ -16,7 +16,6 @@ const MongoDb = async ({ config, onDBInit, onError, onDisconnect, isServerless =
           dbName: "orbital"
         });
         mongoose.model("knowledges", knowledgeModel); // Add your model here
-        console.log("Connected to DB");
 
         const schemas = {};
         const models = conn.models;
@@ -71,4 +70,4 @@ const MongoDb = async ({ config, onDBInit, onError, onDisconnect, isServerless =
   }
 };
 
-module.exports = MongoDb;
+export default MongoDb;

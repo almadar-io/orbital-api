@@ -1,21 +1,21 @@
-const users = require("./seeds/users");
-const blogs = require("./seeds/blogs");
-const events = require("./seeds/events");
-const settings = require("./seeds/settings");
-const products = require("./seeds/products");
-const categories = require("./seeds/categories");
+import users from './seeds/users.js';
+import blogs from './seeds/blogs.js';
+import events from './seeds/events.js';
+import settings from './seeds/settings.js';
+import products from './seeds/products.js';
+import categories from './seeds/categories.js';
 
-const userModel = require("./models/user");
-const cartsModel = require("./models/carts");
-const ordersModel = require("./models/orders");
-const chatLogModel = require("./models/chat-log");
-const blogModel = require("./models/blog");
-const productsModel = require("./models/products");
-const settingsModel = require("./models/settings");
-const eventsModel = require("./models/events");
-const categoriesModel = require("./models/categories");
-const mongoose = require("mongoose");
-const config = require("config");
+import userModel from './models/user.js';
+import cartsModel from './models/carts.js';
+import ordersModel from './models/orders.js';
+import chatLogModel from './models/chat-log.js';
+import blogModel from './models/blog.js';
+import productsModel from './models/products.js';
+import settingsModel from './models/settings.js';
+import eventsModel from './models/events.js';
+import categoriesModel from './models/categories.js';
+import mongoose from 'mongoose';
+import config from 'config';
 
 mongoose
   .connect(`${config.get("db.host")}`, {
@@ -65,4 +65,4 @@ async function runSeeds() {
   process.exit(0);
 }
 
-module.exports = runSeeds;
+export default runSeeds;

@@ -1,56 +1,52 @@
 //the crud service creates [create, read, update, del] endpoints for a mongoose model
-const crudService = require("@markab.io/node/crud-service/crud-service");
-const mediaService = require("@markab.io/node/media-service/media-service.js");
-const vizService = require("@markab.io/node/viz-service/viz-service.js");
-const {
+import crudService from "@markab.io/node/crud-service/crud-service.js";
+import mediaService from "@markab.io/node/media-service/media-service.js";
+import vizService from "@markab.io/node/viz-service/viz-service.js";
+import {
   formsService,
-  registerForms
-} = require("@markab.io/node/forms-service/forms-service");
-const {
+  registerForms,
+} from "@markab.io/node/forms-service/forms-service";
+import {
   registerAction,
-  isPermitted
-} = require("@markab.io/node/acl-service/acl-service.js");
-const Notification = ({
-  notificationsModel,
-  permissionsModel,
-  formsModel
-}) => {
+  isPermitted,
+} from "@markab.io/node/acl-service/acl-service.js";
+const Notification = ({ notificationsModel, permissionsModel, formsModel }) => {
   let modelName = "notifications";
   let crudDomainLogic = {
     create: (user, req) => {
       return {
         isPermitted: isPermitted({ key: `${modelName}_create`, user }),
-        criteria: {}
+        criteria: {},
       };
     },
     read: (user, req) => {
       return {
         isPermitted: isPermitted({ key: `${modelName}_read`, user }),
-        criteria: {}
+        criteria: {},
       };
     },
     update: (user, req) => {
       return {
         isPermitted: isPermitted({ key: `${modelName}_update`, user }),
-        criteria: {}
+        criteria: {},
       };
     },
     del: (user, req) => {
       return {
         isPermitted: isPermitted({ key: `${modelName}_delete`, user }),
-        criteria: {}
+        criteria: {},
       };
     },
     search: (user, req) => {
       return {
         isPermitted: isPermitted({ key: `${modelName}_search`, user }),
-        criteria: {}
+        criteria: {},
       };
-    }
+    },
   };
   const notificationsApi = crudService({
     Model: notificationsModel,
-    crudDomainLogic
+    crudDomainLogic,
   });
 
   let vizDomainLogic = {
@@ -72,11 +68,11 @@ const Notification = ({
     },
     distinct: (user, req, res) => {
       return {};
-    }
+    },
   };
   const vizApi = vizService({
     Model: notificationsModel,
-    domainLogic: vizDomainLogic
+    domainLogic: vizDomainLogic,
   });
 
   //file upload api
@@ -86,49 +82,49 @@ const Notification = ({
         criteria: {
           tag: user._id,
           token: user.jwtToken,
-          query: { _id: req.query.query }
+          query: { _id: req.query.query },
         },
-        isPermitted: true
+        isPermitted: true,
       };
     },
     saveMedia: (user, req, res) => {
       return {
         criteria: {
           token: user.jwtToken,
-          query: { _id: req.query.query, fileName: req.query.fileName }
+          query: { _id: req.query.query, fileName: req.query.fileName },
         },
-        isPermitted: true
+        isPermitted: true,
       };
-    }
+    },
   };
   const fileUploadApi = mediaService({
     fileName: "notifications",
     modelName,
     mediaDomainLogic,
     Model: notificationsModel,
-    fileExtension: ".jpg"
+    fileExtension: ".jpg",
   });
 
   //forms api
   let formsDomainLogic = {
-    read: notifications => {
+    read: (notifications) => {
       return { criteria: { key: `${modelName}` }, isPermitted: true };
-    }
+    },
   };
   const formsApi = formsService({
     Model: formsModel,
-    formsDomainLogic
+    formsDomainLogic,
   });
   registerAction({
     key: `${modelName}`,
     domainLogic: crudDomainLogic,
     permissionsModel,
-    defaultPermission: false
+    defaultPermission: false,
   });
   registerAction({
     key: `${modelName}`,
     domainLogic: mediaDomainLogic,
-    permissionsModel
+    permissionsModel,
   });
   registerForms({
     key: `${modelName}`,
@@ -138,20 +134,20 @@ const Notification = ({
         name: "title",
         placeholder: "Notification Title",
         value: "",
-        required: true
+        required: true,
       },
       {
         type: "text",
         name: "type",
         placeholder: "Notification Type",
         value: [],
-        required: false
-      }
+        required: false,
+      },
     ],
-    formsModel
+    formsModel,
   });
 
   return [notificationsApi, fileUploadApi, vizApi, formsApi];
 };
 
-module.exports = Notification;
+export default Notification;

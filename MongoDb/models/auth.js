@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
-var findOrCreate = require("mongoose-findorcreate");
-const bcrypt = require("bcrypt");
-const crypto = require("crypto");
+import mongoose from 'mongoose';
+import findOrCreate from 'mongoose-findorcreate';
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 const saltRounds = 10;
 
 var Schema = mongoose.Schema;
@@ -56,4 +56,4 @@ authSchema.methods.verifyPassword = function(password) {
 };
 
 // set up a mongoose model
-module.exports = mongoose.model("Auth", authSchema);
+export default mongoose.model("Auth", authSchema);

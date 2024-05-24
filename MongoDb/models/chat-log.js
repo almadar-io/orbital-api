@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
@@ -19,4 +19,4 @@ let chatLogSchema = new Schema({
 //   model: "ChatLog",
 //   field: "chatId"
 // });
-module.exports = mongoose.model("ChatLog", chatLogSchema);
+export default mongoose.model("ChatLog", chatLogSchema);

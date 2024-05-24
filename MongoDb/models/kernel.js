@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
-const mongoosePaginate = require("mongoose-paginate-v2");
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 // set up a mongoose model
 let kernelSchema = new Schema({
@@ -15,4 +15,4 @@ let kernelSchema = new Schema({
   resource: { type: String, default: "kernel" }
 });
 kernelSchema.plugin(mongoosePaginate);
-module.exports = mongoose.model("Kernel", kernelSchema);
+export default mongoose.model("Kernel", kernelSchema);

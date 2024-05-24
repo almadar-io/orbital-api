@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose from "mongoose";
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
@@ -13,4 +13,4 @@ let knowledgeSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   resource: { type: String, default: "knowledges" }
 });
-module.exports = knowledgeSchema; 
+export default knowledgeSchema; 

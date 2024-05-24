@@ -9,4 +9,4 @@ let categories = [
   }
 ];
 
-module.exports = categories;
+export default categories;
