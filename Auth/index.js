@@ -1,12 +1,10 @@
 // =================================================================
 // Setup Auth ========================================
 // ================================================================
-import authService from '@markab.io/node/passport-service/passport-service.js';
-const {
-  sendEmail
-} = require("@markab.io/node/email-service/email-service");
-import jwt from 'jsonwebtoken';
-import passport from 'passport';
+import authService from "@markab.io/node/passport-service/passport-service.js";
+import { sendEmail } from "@markab.io/node/email-service/email-service";
+import jwt from "jsonwebtoken";
+import passport from "passport";
 
 const Auth = ({ config, userModel }) => {
   //on verify, we generate a jwt token (for non-web clients) and then we just store the user
@@ -17,12 +15,12 @@ const Auth = ({ config, userModel }) => {
     cb,
     providerName,
     username,
-    password
+    password,
   }) => {
     //add a jwt token for mobile based authentication
     //store the id for providers
     if (providerName === "local") {
-      return userModel.findOne({ email: username }, function(err, user) {
+      return userModel.findOne({ email: username }, function (err, user) {
         if (err) {
           return cb(err);
         }
@@ -53,7 +51,7 @@ const Auth = ({ config, userModel }) => {
     let check = {};
     check[providerId] = profile.id;
 
-    userModel.findOrCreate(check, user, function(err, user) {
+    userModel.findOrCreate(check, user, function (err, user) {
       return cb(err, user);
     });
   };
@@ -66,7 +64,7 @@ const Auth = ({ config, userModel }) => {
       let { error } = userModel.joiValidate(user);
       if (error) {
         return res.status(409).send({
-          message: `error validating your input ${error}`
+          message: `error validating your input ${error}`,
         });
       }
     }
@@ -85,7 +83,7 @@ const Auth = ({ config, userModel }) => {
         user.email,
         `you have a new butt! please click this link to verify your email http://${config.server.host}:${config.server.port}/auth/email-confirmation?token=${user.confirmEmailToken}&email=${user.email}`
       );
-      return user.save(err => {
+      return user.save((err) => {
         if (err) {
           return res.status(500).send(err);
         }
@@ -103,7 +101,7 @@ const Auth = ({ config, userModel }) => {
         return res.status(409).send("User doesn't exist");
       }
       user.hasConfirmedEmail = true;
-      return user.save(err => {
+      return user.save((err) => {
         if (err) {
           return res.status(500).send(err);
         }
@@ -137,7 +135,7 @@ const Auth = ({ config, userModel }) => {
         return res.status(409).send("User doesn't exist");
       }
       user.resetPasswordToken = "reset";
-      user.save(err => {
+      user.save((err) => {
         if (err) {
           return res.status(500).send(err);
         }
@@ -167,7 +165,7 @@ const Auth = ({ config, userModel }) => {
         return res.status(409).send("User doesn't exist");
       }
       user.password = newPassword;
-      return user.save(err => {
+      return user.save((err) => {
         if (err) {
           return res.status(500).send(err);
         }
@@ -214,7 +212,7 @@ const Auth = ({ config, userModel }) => {
     onPasswordReset,
     onPasswordResetConfirm,
     onPasswordChange,
-    passport
+    passport,
   });
 
   return authApi;

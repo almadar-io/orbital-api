@@ -3,14 +3,14 @@ import crudService from '@markab.io/node/crud-service/crud-service.js';
 import mediaService from '@markab.io/node/media-service/media-service.js';
 import {  sendEmail  } from '@markab.io/node/email-service/email-service.js';
 import vizService from '@markab.io/node/viz-service/viz-service.js';
-const {
+import {
   formsService,
-  registerForms
-} = require("@markab.io/node/forms-service/forms-service");
-const {
+  registerForms,
+} from "@markab.io/node/forms-service/forms-service";
+import {
   registerAction,
-  isPermitted
-} = require("@markab.io/node/acl-service/acl-service.js");
+  isPermitted,
+} from "@markab.io/node/acl-service/acl-service.js";
 import {  onPasswordReset  } from './on-password-reset.js';
 
 const User = ({ config, userModel, permissionsModel, formsModel }) => {
