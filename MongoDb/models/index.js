@@ -1,10 +1,10 @@
 import authModel from "./auth.js"
-import permissionsModel from "./permissions"
-import settingsModel from "./settings"
-import formsModel from "./forms"
-import lambdaModel from "./lambda"
-import userModel from "./user"
-import gameModel from "./game"
+import permissionsModel from "./permissions.js"
+import settingsModel from "./settings.js"
+import formsModel from "./forms.js"
+import lambdaModel from "./lambda.js"
+import userModel from "./user.js"
+import gameModel from "./game.js"
 
 export {
   authModel,

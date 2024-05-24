@@ -1,1 +1,1 @@
-import { RequestList } from "./request-list";
+import { RequestList } from "./request-list.js";

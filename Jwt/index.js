@@ -1,4 +1,4 @@
-import jwtService from "@markab.io/node/jwt-service/jwt-service"
+import jwtService from "@markab.io/node/jwt-service/jwt-service.js"
 
 const Jwt = ({ config, userModel, chatLogModel }) => {
   const onVerify = decodedId => {

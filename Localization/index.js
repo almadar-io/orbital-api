@@ -1,4 +1,4 @@
-import i18nService from "@markab.io/node/i18n-service/i18n-service"
+import i18nService from "@markab.io/node/i18n-service/i18n-service.js"
 import express from "express"
 import path from "path"
 

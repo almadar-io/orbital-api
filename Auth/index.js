@@ -2,7 +2,7 @@
 // Setup Auth ========================================
 // ================================================================
 import authService from "@markab.io/node/passport-service/passport-service.js";
-import { sendEmail } from "@markab.io/node/email-service/email-service";
+import { sendEmail } from "@markab.io/node/email-service/email-service.js";
 import jwt from "jsonwebtoken";
 import passport from "passport";
 
