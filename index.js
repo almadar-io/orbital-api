@@ -1,13 +1,13 @@
-const authApi = require("./Auth");
-const settingsApi = require("./Settings");
-const userApi = require("./User");
-const kernelApi = require("./Kernel");
-const notificationsApi = require("./Notification");
-const aclApi = require("./Acl");
-const mediaApi = require("./Media");
-const localizationApi = require("./Localization");
-const jwtApi = require("./Jwt");
-const formsApi = require("./Forms");
+import authApi from './Auth.js';
+import settingsApi from './Settings.js';
+import userApi from './User.js';
+import kernelApi from './Kernel.js';
+import notificationsApi from './Notification.js';
+import aclApi from './Acl.js';
+import mediaApi from './Media.js';
+import localizationApi from './Localization.js';
+import jwtApi from './Jwt.js';
+import formsApi from './Forms.js';
 const orbitalApi = ({
   config,
   userModel,

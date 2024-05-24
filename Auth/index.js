@@ -1,12 +1,12 @@
 // =================================================================
 // Setup Auth ========================================
 // ================================================================
-const authService = require("@markab.io/node/passport-service/passport-service");
+import authService from '@markab.io/node/passport-service/passport-service.js';
 const {
   sendEmail
 } = require("@markab.io/node/email-service/email-service");
-const jwt = require("jsonwebtoken");
-const passport = require("passport");
+import jwt from 'jsonwebtoken';
+import passport from 'passport';
 
 const Auth = ({ config, userModel }) => {
   //on verify, we generate a jwt token (for non-web clients) and then we just store the user

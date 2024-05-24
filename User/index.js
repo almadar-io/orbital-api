@@ -1,8 +1,8 @@
 //the crud service creates [create, read, update, del] endpoints for a mongoose model
-const crudService = require("@markab.io/node/crud-service/crud-service");
-const mediaService = require("@markab.io/node/media-service/media-service.js");
-const { sendEmail } = require("@markab.io/node/email-service/email-service");
-const vizService = require("@markab.io/node/viz-service/viz-service");
+import crudService from '@markab.io/node/crud-service/crud-service.js';
+import mediaService from '@markab.io/node/media-service/media-service.js';
+import {  sendEmail  } from '@markab.io/node/email-service/email-service.js';
+import vizService from '@markab.io/node/viz-service/viz-service.js';
 const {
   formsService,
   registerForms
@@ -11,7 +11,7 @@ const {
   registerAction,
   isPermitted
 } = require("@markab.io/node/acl-service/acl-service.js");
-const { onPasswordReset } = require("./on-password-reset");
+import {  onPasswordReset  } from './on-password-reset.js';
 
 const User = ({ config, userModel, permissionsModel, formsModel }) => {
   let modelName = "users";

@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-const Joi = require("joi");
-const mongoosePaginate = require("mongoose-paginate-v2");
+import Joi from 'joi';
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 const eventJoiSchema = Joi.object()
   .keys({

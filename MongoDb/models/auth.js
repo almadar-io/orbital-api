@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var findOrCreate = require("mongoose-findorcreate");
-const bcrypt = require("bcryptjs");
-const crypto = require("crypto");
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 const saltRounds = 10;
 
 var Schema = mongoose.Schema;
