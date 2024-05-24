@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-var Schema = mongoose.Schema;
 import Joi from 'joi';
 import mongoosePaginate from 'mongoose-paginate-v2';
+var Schema = mongoose.Schema;
 
 const productsJoiSchema = Joi.object()
   .keys({
