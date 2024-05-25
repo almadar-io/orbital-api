@@ -11,7 +11,8 @@
     "serve": "node dist/index.js",
     "seed": "node ./App/MongoDb/seed.js",
     "kernel": "./scripts/kernel/kernel.sh",
-    "test": "./node_modules/.bin/jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+
   },
   "repository": {
     "type": "git",
