@@ -8,9 +8,6 @@
     "start": "nodemon --exec node index.js",
     "start:qa": "nodemon --exec node index.js --config nodemon-qa.json",
     "forever:qa": "./node_modules/.bin/forever start -c \"npm run start:qa\" ./",
-    "start:mongo": "./scripts/mongo-start.sh",
-    "start:mongo:cloud9": "mongod --bind_ip=$IP --dbpath=/home/ec2-user/environment/data --nojournal",
-    "build": "babel index.js --out-dir dist",
     "serve": "node dist/index.js",
     "seed": "node ./App/MongoDb/seed.js",
     "kernel": "./scripts/kernel/kernel.sh",
@@ -37,8 +34,13 @@
   },
   "devDependencies": {
     "forever": "^4.0.3",
+    "nodemon": "^3.1.0",
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "axios": "^1.7.2",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.0"
+    "supertest": "^7.0.0"
   },
   "jest": {
     "setupFiles": [
